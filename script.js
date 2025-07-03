@@ -1,12 +1,14 @@
 function isSameType(value1, value2) {
-  // Check for NaN using Number.isNaN (better than global isNaN)
-  if (Number.isNaN(value1) && Number.isNaN(value2)) {
-    return true;
-  }
+  const bothNaN = Number.isNaN(value1) && Number.isNaN(value2);
+  const onlyOneNaN = Number.isNaN(value1) || Number.isNaN(value2);
 
-  // Check for same type using typeof
+  if (bothNaN) return true;
+  if (onlyOneNaN) return false;
+
   return typeof value1 === typeof value2;
 }
+
+
 
 
 // do not change the code below.
